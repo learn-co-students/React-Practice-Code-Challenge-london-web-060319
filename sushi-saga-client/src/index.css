@@ -65,6 +65,7 @@ body {
 .sushi {
   min-width: 150px;
   margin: auto;
+  /* animation: App-logo-spin infinite 5s linear; */
 }
 
 .table {
@@ -76,4 +77,12 @@ body {
   height: 428px;
   width: 700px;
   margin: auto;
+}
+
+.empty-plate {
+  
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
