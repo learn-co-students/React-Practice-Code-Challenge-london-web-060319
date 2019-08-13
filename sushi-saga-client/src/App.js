@@ -17,8 +17,6 @@ class App extends Component {
   };
 
   fetchData = () => {
-    // const limitQuery = "/?_limit=4";
-    // const pageQuery = `&_page=${this.state.page}`;
     return fetch(API).then(resp => resp.json());
   };
 
@@ -31,10 +29,17 @@ class App extends Component {
   }
 
   moreSushi = () => {
-    this.setState({
-      sliceStart: this.state.sliceStart + 4,
-      sliceEnd: this.state.sliceEnd + 4
-    });
+    if (this.state.sliceStart !== 96) {
+      this.setState({
+        sliceStart: this.state.sliceStart + 4,
+        sliceEnd: this.state.sliceEnd + 4
+      });
+    } else {
+      this.setState({
+        sliceStart: 0,
+        sliceEnd: 4
+      });
+    }
   };
 
   eatSushi = id => {
@@ -49,6 +54,12 @@ class App extends Component {
     }
   };
 
+  addMoneyForm = value => {
+    this.setState({
+      wallet: this.state.wallet + parseInt(value)
+    });
+  };
+
   render() {
     const { sushis, sliceStart, sliceEnd, plates, wallet, eaten } = this.state;
     return (
@@ -59,7 +70,11 @@ class App extends Component {
           eatSushi={this.eatSushi}
           eaten={eaten}
         />
-        <Table emptyPlates={plates} wallet={wallet} />
+        <Table
+          emptyPlates={plates}
+          wallet={wallet}
+          addMoneyForm={this.addMoneyForm}
+        />
       </div>
     );
   }

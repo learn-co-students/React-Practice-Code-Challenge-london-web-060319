@@ -11,12 +11,12 @@ const SushiContainer = props => {
       eaten={props.eaten}
     />
   ));
-  // {id: 1, name: "Tako Supreme", img_url: "https://sushistickers.com/img/sushi-slice_99.png", price: 20
   return (
     <Fragment>
       <div className="belt">
         {sushiList}
         <MoreButton moreSushi={props.moreSushi} />
+
       </div>
     </Fragment>
   );

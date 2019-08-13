@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 
+import AddMoney from "../components/AddMoney";
+
 const Table = props => {
   const renderPlates = array => {
     return array.map((x, index) => {
@@ -8,9 +10,15 @@ const Table = props => {
   };
   return (
     <Fragment>
-      <h1 className="remaining">
-        You have: ${props.wallet} remaining!
-      </h1>
+      <div className="remaining">
+        <h1>You have: ${props.wallet} remaining! </h1>
+        <h3>
+          {props.wallet < 10 ? (
+            <AddMoney addMoneyForm={props.addMoneyForm} />
+          ) : null}{" "}
+        </h3>
+      </div>
+
       <div className="table">
         <div className="stack">
           {props.emptyPlates !== 0
