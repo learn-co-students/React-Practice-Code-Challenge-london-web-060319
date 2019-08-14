@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const Table = (props) => {
+const Table = ({budget, eatenSushis}) => {
 
   const renderPlates = (array) => {
     return array.map((x, index) => {
@@ -11,17 +11,12 @@ const Table = (props) => {
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${ budget } remaining!
       </h1>
       <div className="table">
         <div className="stack">
           {
-            /* 
-               renderPlates takes an array 
-               and renders an empty plate
-               for every element in the array
-            */
-            renderPlates([])
+            renderPlates(eatenSushis)
           }
         </div>
       </div>
